@@ -1,26 +1,52 @@
+################################### Main App ###################################
+
+###
 GET http://localhost:3000
+
+
+################################## Google Maps #################################
+
+###
+GET http://localhost:3000/places?text="Elevador Lacerda"
+
+###
+GET http://localhost:3000/places?text="Lagoa do Abaeté"
+
+### Elevador Lacerda
+# place_id: ChIJbwjQpe8EFgcReGfBceMwWXI
+
+### Lagoa do Abaeté
+# place_id: ChIJkaUI9YIXFgcReN_-CPCiGw0
+
+###
+GET http://localhost:3000/directions?origin_id=ChIJbwjQpe8EFgcReGfBceMwWXI&destination_id=ChIJkaUI9YIXFgcReN_-CPCiGw0
+
+
+#################################### Routes ####################################
 
 ###
 GET http://localhost:3000/routes
 
 ###
-GET http://localhost:3000/routes/1
+# GET http://localhost:3000/routes/<unique document ObjectId UID>
 
 ###
 POST http://localhost:3000/routes
 Content-Type: application/json
 
 {
-  "cyka": "blyat"
+  "name": "Route Test 1",
+  "source_id": "ChIJbwjQpe8EFgcReGfBceMwWXI",
+  "destination_id": "ChIJkaUI9YIXFgcReN_-CPCiGw0"
 }
 
 ###
-PATCH http://localhost:3000/routes/1
-Content-Type: application/json
-
-{
-  "lorem": "ipsum"
-}
+# PATCH http://localhost:3000/routes/<unique document ObjectId UID>
+# Content-Type: application/json
+#
+# {
+#   "lorem": "ipsum"
+# }
 
 ###
-DELETE http://localhost:3000/routes/1
+# DELETE http://localhost:3000/routes/<unique document ObjectId UID>
