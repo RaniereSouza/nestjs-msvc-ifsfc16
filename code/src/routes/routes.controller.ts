@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { RoutesService } from './routes.service';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
@@ -16,7 +24,7 @@ export class RoutesController {
   @Get()
   async findAll() {
     const routes = await this.routesService.findAll();
-    return routes.map(route => new RouteSerializer(route));
+    return routes.map((route) => new RouteSerializer(route));
   }
 
   @Get(':id')

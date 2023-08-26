@@ -14,7 +14,9 @@ export class DirectionsService {
     private googleMapsClient: GoogleMapsClient,
     private configService: ConfigService,
   ) {
-    this.gMapsKey = this.configService.getOrThrow<string>('GOOGLE_MAPS_API_KEY');
+    this.gMapsKey = this.configService.getOrThrow<string>(
+      'GOOGLE_MAPS_API_KEY',
+    );
   }
 
   async getDirections(placeOriginId: string, placeDestinationId: string) {
@@ -25,7 +27,7 @@ export class DirectionsService {
       key: this.gMapsKey,
     };
 
-    const { data:directionsData }  = await this.googleMapsClient.directions({
+    const { data: directionsData } = await this.googleMapsClient.directions({
       params: requestParams,
     });
 

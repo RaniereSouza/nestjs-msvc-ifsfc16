@@ -13,11 +13,13 @@ export class PlacesService {
     private googleMapsClient: GoogleMapsClient,
     private configService: ConfigService,
   ) {
-    this.gMapsKey = this.configService.getOrThrow<string>('GOOGLE_MAPS_API_KEY');
+    this.gMapsKey = this.configService.getOrThrow<string>(
+      'GOOGLE_MAPS_API_KEY',
+    );
   }
 
   async findPlace(text: string) {
-    const { data:placeData } = await this.googleMapsClient.findPlaceFromText({
+    const { data: placeData } = await this.googleMapsClient.findPlaceFromText({
       params: {
         input: text,
         inputtype: PlaceInputType.textQuery,

@@ -1,0 +1,13 @@
+version: '3'
+name: nestjs-ifsfc16-devcontainer
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 5555:5555
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity

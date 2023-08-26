@@ -5,7 +5,10 @@
 	// "image": "mcr.microsoft.com/devcontainers/rust:bullseye",
 
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"dockerComposeFile": ["../code/docker-compose.yaml"],
+	"dockerComposeFile": [
+		"../code/docker-compose.yaml",
+		"./docker-compose.yaml"
+	],
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"shutdownAction": "stopCompose",
@@ -21,7 +24,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cd code && npm ci",
+	// "postCreateCommand": "cd code && npm ci",
 
 	// Configure tool-specific properties.
 	"customizations": {

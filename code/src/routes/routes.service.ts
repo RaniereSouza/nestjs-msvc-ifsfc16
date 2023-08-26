@@ -12,12 +12,11 @@ export class RoutesService {
   ) {}
 
   async create(createRouteDto: CreateRouteDto) {
-    const {
-      available_travel_modes, geocoded_waypoints, routes, request,
-    } = await this.directionsService.getDirections(
-      createRouteDto.source_id,
-      createRouteDto.destination_id,
-    );
+    const { available_travel_modes, geocoded_waypoints, routes, request } =
+      await this.directionsService.getDirections(
+        createRouteDto.source_id,
+        createRouteDto.destination_id,
+      );
     const leg = routes[0].legs[0];
 
     return this.prismaService.route.create({
@@ -40,7 +39,10 @@ export class RoutesService {
         distance: leg.distance.value,
         duration: leg.duration.value,
         directions: JSON.stringify({
-          available_travel_modes, geocoded_waypoints, routes, request,
+          available_travel_modes,
+          geocoded_waypoints,
+          routes,
+          request,
         }),
       },
     });
@@ -55,9 +57,9 @@ export class RoutesService {
   }
 
   update(id: number, updateRouteDto: UpdateRouteDto) {
-    return `This action updates a #${id} route:\n${
-      JSON.stringify(updateRouteDto)
-    }`;
+    return `This action updates a #${id} route:\n${JSON.stringify(
+      updateRouteDto,
+    )}`;
   }
 
   remove(id: number) {

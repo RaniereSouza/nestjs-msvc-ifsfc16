@@ -4,14 +4,14 @@ import { DirectionsResponseData } from '@googlemaps/google-maps-services-js';
 export class RouteSerializer implements Omit<Route, 'directions'> {
   id: string;
   name: string;
-  source: { name: string; location: { lat: number; lng: number; } };
-  destination: { name: string; location: { lat: number; lng: number; } };
+  source: { name: string; location: { lat: number; lng: number } };
+  destination: { name: string; location: { lat: number; lng: number } };
   distance: number;
   duration: number;
   created_at: Date;
   updated_at: Date;
 
-  directions: DirectionsResponseData & { request: unknown; };
+  directions: DirectionsResponseData & { request: unknown };
 
   constructor(route: Route) {
     this.id = route.id;
